@@ -1,0 +1,192 @@
+/*GOODS*/
+section.cart{
+  padding-top:74px;
+  padding-bottom:74px;
+}
+section.cart .container{
+  max-width:500px;
+}
+.cart__title{
+  font-size: 25px;
+  font-weight: 600;
+  padding:40px 40px 40px 0;
+}
+.goods__container{
+  position:relative;
+  display:flex;
+  box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
+  width:500px;
+  margin-bottom:20px;
+}
+a.goods__delete::after{
+  position:absolute;
+  display:block;
+  right:29px;
+  top:26px;
+  color:#000;
+  content:'\f00d';
+  font-family: 'Font Awesome 5 Free',
+  'Font Awesome 5 Brands';
+  font-weight: 600;
+  font-size: 21px;
+  cursor:pointer;
+}
+.goods__image{
+  display:block;
+  object-fit:cover;
+  width:70px;
+  height:70px;
+}
+.goods__text{
+  padding:0 0 0 20px;
+}
+.goods__name{
+  font:500 14px/21px 'Montserrat', sans-serif;
+  padding:10px 0 5px 0;
+}
+.goods__price{
+  font:700 16px/18px 'Montserrat',sans-serif;
+}
+button.cart__checkout{
+  color:#fff;
+  background-color: #FFE627;
+  border-radius:6px;
+  padding:10px 12px;
+  margin:20px 0 0 0;
+}
+button.cart__checkout:hover{
+  background-color: #E32B2B;
+}
+.cart__summ{
+  font-size: 20px;
+  padding:10px 0;
+}
+
+
+/*MODAL*/
+.modal__backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  z-index: -1;
+  pointer-events: none;
+  transition: opacity0 .2s ease-in;
+}
+
+.modal__content {
+  position: relative;
+  width: auto;
+  margin: 10px;
+  transition: opacity 0.3s ease-in;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+  box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 576px) {
+  .modal__content {
+    max-width: 500px;
+    margin: 50px auto;
+  }
+}
+
+.modal__show .modal__backdrop,
+.modal__show .modal__content {
+  opacity: 1;
+  z-index: 1050;
+  pointer-events: auto;
+  overflow-y: auto;
+}
+
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  border-bottom: 1px solid #eceeef;
+}
+
+.modal__title {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.5;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.modal__btn-close {
+  float: right;
+  font-family:'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: 0.5;
+  text-decoration: none;
+}
+
+.modal__btn-close:focus,
+.modal__btn-close:hover {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+.modal__body {
+  position: relative;
+  flex: 1 1 auto;
+  padding: 15px;
+  overflow: auto;
+}
+
+.modal__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 1rem;
+  border-top: 1px solid #e9ecef;
+  border-bottom-right-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+}
+.modal__body input{
+  display:block;
+  border-bottom:2px solid #cecece;
+  background-color: #f5f6f8;
+  width:300px;
+  padding:5px 0 5px 5px;
+  margin:0 auto 12px auto;
+}
+.modal button, .modal__cancel{
+  border-radius:6px;
+  color:#fff;
+  background-color: #FFE627;
+  padding:8px 10px;
+  margin-right:20px;
+  cursor:pointer;
+}
+.modal button:hover{
+  background-color: #E32B2B;
+}
+.modal__cancel:hover{
+  background-color: #E32B2B;
+}
+.alert {
+  color: red;
+  margin: 10px 0 0 85px;
+  font-size: 13px;
+}
+.message{
+  color: red;
+  margin: 10px 0;
+  font-size: 13px;
+}

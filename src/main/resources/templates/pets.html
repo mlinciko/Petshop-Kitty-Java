@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <div th:replace="fragments/head :: head"></div>
+
+<!--styles-->
+    <link rel="stylesheet" href="styles/pets.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="content">
+    <div th:replace="fragments/header :: header"></div>
+    <section class="top">
+        <div class="container">
+            <div class="top__title">Выбери себе пушистого друга!</div>
+            <div class="top__image">
+                <img src="images/main/pets.jpg" alt="Pets">
+            </div>
+        </div>
+    </section>
+    <section class="filter">
+        <form th:method="GET" th:action="@{'/'+${type}}">
+            <div class="container">
+                <details class="filter__main">
+                    <summary class="main__title filter__title arrow__main">Фильтр</summary>
+                    <div class="settings">
+                        <details class="filter__price">
+                            <summary class="filter__title arrow__price">Цена</summary>
+                            <label for="price">До <span id="currentPrice">0</span> &#8381;</label>
+                            <input name="price" id="price" value="0" type="range" step="10" min="0" max="10000">
+                        </details>
+                        <details class="filter__price">
+                            <summary class="filter__title arrow__price">Возраст</summary>
+                            <label for="age">До <span id="currentAge">0</span> лет</label>
+                            <input name="age" id="age"  value="0" type="range" step="0.1" min="0" max="15" >
+                        </details>
+
+                        <div class="filter__apply filter__title">
+                            <button type="submit">
+                                Применить
+                            </button>
+                        </div>
+                        <a th:href="@{'/'+ ${type} +'/'}" class="filter__clear filter__title">Убрать фильтр</a>
+                    </div>
+                </details>
+            </div>
+        </form>
+    </section>
+    <div class="message">
+        <div class="container" th:if="${showMessage}">
+        Животных с такими параметрами не нашлось :(
+        </div>
+    </div>
+    <section class="goods">
+        <div class="container" >
+            <a th:href="@{'/'+ ${type} + '/pet-details?id=' + ${pet.getId()}}" class="goods__item" th:each="pet : ${pets}">
+                <img class="goods__image" th:src="@{'images/' + ${pet.image}}" width="243" height="270">
+                <div class="goods__name" th:text="${pet.name}"></div>
+                <div class="goods__price" th:text="@{${pet.price}+' '+&#8381;}"></div>
+            </a>
+        </div>
+    </section>
+    </div>
+    <div th:replace="fragments/footer :: footer"></div>
+</div>
+    <script src="../js/range.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <div th:replace="fragments/head :: head"></div>
+    <!--styles-->
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="content">
+    <div th:replace="fragments/header :: header"></div>
+    <section class="main">
+        <div class="container main__container">
+            <div class="main__items">
+                <div class="main__subtitle">Найдите своего любимого питомца!</div>
+                <div class="main__title">Kîtty</div>
+                <a href="#types" class="main__button">Выбрать питомца</a>
+            </div>
+            <div class="main__image">
+                <img src="images/main/main.jpg" alt="Main photo" class="main__image">
+            </div>
+            <div class="main__contacts contacts">
+                <div class="contacts__item">Facebook</div>
+                <div class="contacts__item">Instagram</div>
+            </div>
+        </div>
+    </section>
+    <section id ="types" class="best">
+        <div class="container">
+            <div class="best__title">Категории</div>
+        </div>
+    </section>
+    <section class="goods">
+        <div class="container" >
+            <a th:href="@{'/' + ${type.getType()} + '/'}" class="goods__item" th:each="type : ${types}">
+                <img class="goods__image" th:src="@{'images/main/' + ${type.image}}" width="270" height="343">
+                <div class="goods__name" th:text="${type.name}"></div>
+            </a>
+        </div>
+    </section>
+    </div>
+    <div th:replace="fragments/footer :: footer"></div>
+</div>
+</body>
+</html>

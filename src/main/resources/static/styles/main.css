@@ -1,0 +1,179 @@
+.main{
+  background-color: rgba(245,222,179, 0.5);
+  z-index:-1;
+}
+.main__container{
+  display:flex;
+}
+
+.main__items{
+  margin:180px 0 0 163px;
+}
+.main__subtitle{
+  font: 400 18px/21.11px 'Montserrat', sans-serif;
+  color:#000;
+}
+.main__title{
+  font: 800 128px/128px 'Work Sans', sans-serif;
+}
+.main__button{
+  display:block;
+  width: 219px;
+  height: 64px;
+  font: 700 16px/64px 'Montserrat', sans-serif;
+  text-align: center;
+  background-color: #FFE627;
+  border-radius:6px;
+  cursor:pointer;
+  color:#fff;
+  margin-top:30px;
+}
+.main__button:hover{
+  background-color: #E32B2B;
+}
+.main__image{
+  position:relative;
+  margin-left:180px;
+}
+.main__image img{
+  width: 430px;
+  height: 517px;
+  object-fit:cover;
+  object-position:63% 50%;
+  z-index:1;
+  margin:0;
+}
+.main__image::before, .main__image::after{
+  content:'';
+  position:absolute;
+  width: 232px;
+  height: 176px;
+  background: url("../images/main/lines.svg") no-repeat;
+}
+.main__image::before{
+  top:0;
+  left:-50px;
+}
+.main__image::after{
+  bottom:0;
+  right:-50px;
+  z-index:0;
+}
+
+.contacts{
+  font: 500 14px/16px 'Montserrat', sans-serif;
+  margin:472px 0 0 70px;
+}
+
+.best{
+  padding-top:130px;
+}
+.best__title{
+  font:700 32px/37px 'Montserrat',sans-serif;
+  padding-bottom:30px;
+}
+
+.fall .container{
+  display:flex;
+  align-items: center;
+}
+.info{
+  position:relative;
+  width: 400px;
+  height: 308px;
+  background-color: #F1F2F4;
+  padding:70px 0 0 70px;
+}
+.info::before{
+  content:'';
+  position:absolute;
+  width: 470px;
+  height: 370px;
+  top:-31px;
+  left:0;
+  background: url("../images/main/lines.svg") no-repeat;
+  background-size: cover;
+  z-index:-1;
+}
+.info__subtitle{
+  font:400 18px/21px 'Montserrat',sans-serif;
+  color:#727A82;
+}
+.info__title{
+  font:700 32px/37px 'Montserrat', sans-serif;
+  padding:20px 0 50px 0;
+}
+.info__button{
+  display:block;
+  width: 200px;
+  height: 64px;
+  font:700 16px/64px 'Montserrat', sans-serif;
+  text-align: center;
+  background-color: #151C22;
+  color:#fff;
+  cursor:pointer;
+}
+.info__button:hover{
+  background-color: #88bdd1;
+}
+
+.category{
+  padding:70px 0 57px 0;
+}
+.category__title{
+  font:700 32px/37px 'Montserrat', sans-serif;
+  padding-bottom:70px;
+}
+.view-all{
+  font:500 18px/21px 'Montserrat',sans-serif;
+  text-decoration: underline;
+  cursor:pointer;
+}
+.view-all:hover{
+  opacity:0.6;
+}
+.category .goods{
+  display:flex;
+  justify-content: space-between;
+}
+.category .goods img{
+  width: 270px;
+  height: 343px;
+  object-fit:cover;
+}
+.category .goods__item{
+  display:block;
+  cursor:pointer;
+  color:#000;
+}
+.category .goods__name{
+  font:500 18px/21px 'Montserrat', sans-serif;
+  padding-top:25px;
+}
+
+.goods{
+  margin-bottom:100px;
+}
+.goods .container{
+  display:flex;
+  flex-wrap:wrap;
+  gap:30px;
+}
+.goods__item{
+  cursor:pointer;
+  color:#000;
+}
+.goods__item:hover{
+    transform:scale(1.1);
+}
+.goods__item img{
+  object-fit:cover;
+  box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
+}
+.goods__name{
+  font:500 14px/21px 'Montserrat', sans-serif;
+  padding:15px 0 5px 0;
+}
+.goods__price{
+  font:700 16px/18px 'Montserrat',sans-serif;
+}

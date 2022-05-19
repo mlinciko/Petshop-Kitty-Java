@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <div th:replace="fragments/head :: head"></div>
+    <!--styles-->
+    <link rel="stylesheet" href="styles/order.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="content">
+    <div th:replace="fragments/header :: header"></div>
+
+    <section class="order">
+        <div class="container">
+            <div class="order__card">
+                <div class="order__card--title">Информация о заказе</div>
+                <div class="order__title">Ваши данные: </div>
+                <div class="order__name order__info" th:text="@{'Номер заказа: '+${order.id}}"></div>
+                <div class="order__name order__info" th:text="@{'Имя: '+${order.firstName}}"></div>
+                <div class="order__name order__info"th:text="@{'Фамилия: '+${order.lastName}}"></div>
+                <div class="order__tel order__info" th:text="@{'Номер телефона: '+${order.tel}}"></div>
+                <div class="order__email order__info" th:text="@{'E-mail: '+${order.email}}"></div>
+                <div class="order__address order__info" th:text="@{'Адрес: '+${order.address}}"></div>
+                <div class="order__title">Ваш заказ: </div>
+                <div class="goods">
+                    <div class="goods__container" th:each="item : ${cartItems}" th:with="pet = ${item.pet}">
+                        <img th:src="@{'images/' + ${pet.image}}" alt="" class="goods__image">
+                        <div class="goods__text">
+                            <div class="goods__name" th:text="${pet.name}"></div>
+                            <div class="goods__price" th:text="@{${pet.price}+' '+&#8381;}"></div>
+                        </div>
+                    </div>
+                </div>
+                <button class="order__button"><a th:href="@{/tomain}">Перейти к покупкам</a></button>
+            </div>
+        </div>
+    </section>
+    </div>
+    <div th:replace="fragments/footer :: footer"></div>
+    </div>
+</body>
+</html>

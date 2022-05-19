@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <div th:replace="fragments/head :: head"></div>
+    <!--styles-->
+    <link rel="stylesheet" href="/styles/cart.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="content">
+    <div th:replace="fragments/header :: header"></div>
+    <section class="cart">
+        <div class="container">
+            <div class="cart__title">Корзина</div>
+
+            <div th:if="${emptyCart}" class="cart__empty">Корзина пустая...</div>
+
+            <div class="goods">
+                <div class="goods__container" th:each="item : ${cartItems}" th:with="pet = ${item.pet}">
+                    <img th:src="@{'images/' + ${pet.image}}" alt="" class="goods__image">
+                    <div class="goods__text">
+                        <div class="goods__name" th:text="${pet.name}"></div>
+                        <div class="goods__price" th:text="@{${pet.price}+' '+&#8381;}"></div>
+                    </div>
+                    <a  th:href="@{'cart/delete?id=' + ${item.id}}" class="goods__delete"></a>
+                </div>
+            </div>
+
+            <div class="cart__summ" th:if="${!emptyCart}" th:text="'Итого: '+${summ}"></div>
+            <button class="cart__checkout" th:if="${!emptyCart}">Оформить заказ</button>
+            <div class="message">* только курьерская доставка</div>
+        </div>
+    </section>
+
+    <section id="dialog" class="modal">
+        <form th:method="POST" th:action="@{/cart/checkout}" th:object="${order}">
+            <div class="modal__backdrop" >
+                <div class="modal__content">
+                    <div class="modal__header">
+                        <div class="modal__title" >Введите свои данные</div>
+                        <span class="modal__btn-close" title="Закрыть">×</span>
+                    </div>
+                    <div class="modal__body">
+                        <input th:field="*{firstName}" id="first-name" placeholder="Имя" type="text" name="first-name" requared>
+                        <input th:field="*{lastName}" id="last-name" placeholder="Фамилия" type="text" name="last-name" requared>
+                        <input th:field="*{tel}" id="tel" placeholder="Номер телефона" type="text" name="tel" requared>
+                        <input th:field="*{email}" id="email" placeholder="E-mail" type="text" name="email" requared>
+                        <input th:field="*{address}" id="address" Placeholder="Адрес" type="text" name="address" requared>
+                        <div class="alert"></div>
+                    </div>
+                    <div class="modal__footer">
+                        <button type="submit">Заказать</button>
+                        <div class="modal__cancel">Отменить</div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+    </div>
+    <div th:replace="fragments/footer :: footer"></div>
+</div>
+    <script src="../js/modal.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<header class="header" th:fragment="header">
+    <div class="container header__container">
+        <ul class="menu header__menu">
+            <li class="menu__item">
+                <a href="/">Главная</a>
+            </li>
+            <li class="menu__item">
+                <a th:href="@{/cats/}">Котики</a>
+            </li>
+            <li class="menu__item">
+                <a th:href="@{/dogs/}">Собачки</a>
+            </li>
+            <li class="menu__item">
+                <a th:href="@{/rodents/}">Грызуны</a>
+            </li>
+            <li class="menu__item">
+                <a th:href="@{/parrots/}">Попугаи</a>
+            </li>
+        </ul>
+        <a href="/" class="title header__title">Kîtty</a>
+        <div class="search__container show">
+            <input placeholder="Поиск" class="search__input" type="text">
+            <a class="close__search" ></a>
+            <div class="search__result show">
+                <div class="search__result-title">
+                    Результаты поиска:
+                </div>
+                <div class="header__goods">
+
+                </div>
+            </div>
+        </div>
+        <div class="header__toolbar">
+            <a class="search search search__black"></a>
+            <a th:href="@{/cart/}" class="basket"></a>
+        </div>
+    </div>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="../../js/active-link.js"></script>
+    <script src="../../js/search.js"></script>
+</header>
+
+</html>

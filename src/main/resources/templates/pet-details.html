@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <div th:replace="fragments/head :: head"></div>
+    <!--styles-->
+    <link rel="stylesheet" href="styles/pet-details.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="content">
+    <div th:replace="fragments/header :: header"></div>
+
+    <section class="product">
+        <div class="product__container">
+            <div class="slider">
+                <div class="slider__photos">
+                    <img class="slider__image big" th:src="@{'images/' + ${pet.image}}" alt="Pet">
+                </div>
+            </div>
+            <div class="info">
+                <h1 class="info__title" th:text="${pet.name}"></h1>
+                <p class="info__descr" th:text="${pet.description}"> </p>
+                <div class="info__age" th:text="@{'Возраст: '+${pet.age}}"></div>
+                <div class="info__gender" th:text="@{'Пол: '+${pet.gender}}"></div>
+
+                <div class="info__price" th:text="@{${pet.price}+' '+&#8381;}"></div>
+                <div class="info__buttons">
+                    <a class="info__button in__cart">
+                        в корзине
+                    </a>
+                    <a th:if="${!isAtCart}" class="info__button add_to_cart">
+                        В корзину
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="others">
+        <div class="container">
+            <div class="others__text">
+                <div class="others__title">Вас может заинтересовать</div>
+                <div class="others__view-all">
+                    <a th:href="@{'/' + ${type} + '/'}">Посмотреть всех</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="goods">
+        <div class="container" >
+            <a th:href="@{'/'+ ${type} + '/pet-details?id=' + ${other_pet.getId()}}" class="goods__item" th:each="other_pet : ${others}">
+                <img class="goods__image" th:src="@{'images/' + ${other_pet.image}}" width="270" height="343">
+                <div class="goods__name" th:text="${other_pet.name}"></div>
+            </a>
+        </div>
+    </section>
+    </div>
+    <div th:replace="fragments/footer :: footer"></div>
+</div>
+    <script type="text/javascript">
+        var petId = "[[${pet.id}]]"
+        var contextPath = "[[@{/}]]"
+        var isAtCart = "[[${isAtCart}]]"
+    </script>
+    <script src="../js/add-to-cart.js"></script>
+</body>
+</html>
